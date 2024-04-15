@@ -1,46 +1,36 @@
 package Models;
-import java.util.ArrayList;
 
 public class Vehiculo {
-    private String nombreV;
+    private String nombre;
     private String matricula;
     private String color;
-    private Chofer choferAsig;
+    private Chofer choferAsignado;
 
-    public Vehiculo(String nombreV, String matricula, String color){
-        this.nombreV=nombreV;
-        this.matricula=matricula;
-        this.color=color;
-    }
-    public String getNombreV() {
-        return nombreV;
+    public Vehiculo(String nombre, String matricula, String color) {
+        this.nombre = nombre;
+        this.matricula = matricula;
+        this.color = color;
     }
 
-    public void setNombreV(String nombreV) {
-        this.nombreV = nombreV;
+    public String getNombre() {
+        return nombre;
     }
 
     public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public Chofer getChoferAsignado() {
+        return choferAsignado;
     }
 
-    public Chofer getChoferAsig() {
-        return choferAsig;
-    }
-
-    public void setChoferAsig(Chofer choferAsig) {
-        this.choferAsig= choferAsig;
+    public void asignarChofer(Chofer chofer) {
+        this.choferAsignado = chofer;
     }
 }
+
+

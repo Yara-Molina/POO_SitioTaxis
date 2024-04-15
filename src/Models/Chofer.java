@@ -1,43 +1,42 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Chofer {
-private String nombreC;
-private String apellidoC;
-public ArrayList<Chofer>chofers;
-private Vehiculo vehiculoAsig;
+    private String nombre;
+    private String apellido;
+    private List<Servicio> servicios;
 
-public Chofer(String nombreC, String apellidoC){
-    this.nombreC= nombreC;
-    this.apellidoC= apellidoC;
-}
-
-    public String getNombreC() {
-        return nombreC;
+    public Chofer(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.servicios = new ArrayList<>();
     }
 
-    public void setNombreC(String nombreC) {
-        this.nombreC = nombreC;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getApellidoC() {
-        return apellidoC;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidoC(String apellidoC) {
-        this.apellidoC = apellidoC;
+    public List<Servicio> getServicios() {
+        return servicios;
     }
 
-    public ArrayList<Chofer> getChofers() {
-        return chofers;
+    public void registrarServicio(Servicio servicio) {
+        this.servicios.add(servicio);
     }
 
-    public Vehiculo getVehiculoAsig() {
-        return vehiculoAsig;
-    }
-
-    public void setVehiculoAsig(Vehiculo vehiculoAsig) {
-        this.vehiculoAsig = vehiculoAsig;
+    public double calcularGanancias() {
+        double totalGanancias = 0.0;
+        for (Servicio servicio : servicios) {
+            totalGanancias += servicio.getCosto();
+        }
+        return totalGanancias;
     }
 }
+
+
