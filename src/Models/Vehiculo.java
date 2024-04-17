@@ -16,18 +16,6 @@ public class Vehiculo {
         return nombre;
     }
 
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public Chofer getChoferAsignado() {
-        return choferAsignado;
-    }
-
     public void asignarChofer(Chofer chofer) {
         this.choferAsignado = chofer;
     }

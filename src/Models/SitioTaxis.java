@@ -32,12 +32,5 @@ public class SitioTaxis {
         vehiculo.asignarChofer(chofer);
     }
 
-    public double calcularGananciasTotales() {
-        double totalGanancias = 0.0;
-        for (Chofer chofer : chofers) {
-            totalGanancias += chofer.calcularGanancias();
-        }
-        return totalGanancias;
-    }
 }
 

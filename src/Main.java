@@ -4,14 +4,16 @@ import Models.SitioTaxis;
 import Models.Vehiculo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
         public class Main {
             public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
                 SitioTaxis empresa = new SitioTaxis();
-                boolean ejecutarPrincipal = true;
-                while (ejecutarPrincipal) {
+                Date fecha = new Date();
+                boolean bandera = true;
+                do {
                     System.out.println("-------------Menu principal-------------");
                     System.out.println("1. Administrador");
                     System.out.println("2. Chofer");
@@ -21,8 +23,8 @@ import java.util.Scanner;
                     String opcion = scanner.next();
                     switch (opcion) {
                         case "1":
-                            boolean ejecutar1 = true;
-                            while (ejecutar1) {
+                            boolean bandera1 = true;
+                            do {
                                 System.out.println("...............Menu de administrador.................");
                                 System.out.println("1. Registrar nuevos vehiculos");
                                 System.out.println("2. Registrar chofer");
@@ -74,17 +76,17 @@ import java.util.Scanner;
                                         System.out.println("Vehículo asignado correctamente!");
                                         break;
                                     case "x":
-                                        ejecutar1 = false;
+                                        bandera1 = false;
                                         break;
                                     default:
                                         System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
                                         break;
                                 }
-                            }
+                            }while (bandera1);
                             break;
                         case "2":
-                            boolean ejecutar2 = true;
-                            while (ejecutar2) {
+                            boolean bandera2 = true;
+                            do {
                                 System.out.println("---------------Menu del chofer---------------");
                                 System.out.println("1. Registrar servicios del dia");
                                 System.out.println("2. Calcular ganancia del dia");
@@ -106,23 +108,26 @@ import java.util.Scanner;
                                         Chofer chofer = empresa.getChofers().get(indiceChofer);
                                         chofer.registrarServicio(servicio);
                                         System.out.println("Servicio registrado correctamente!");
-
                                         break;
                                     case "2":
                                         System.out.println("---Ganancia del dia---");
                                         System.out.println("Seleccione el chofer para ver su ganancia del día: ");
+
                                         for (int i = 0; i < empresa.getChofers().size(); i++) {
                                             System.out.println((i + 1) + "._" + empresa.getChofers().get(i).getNombre());
                                         }
                                         int indiceChofer1 = scanner.nextInt() - 1;
                                         Chofer chofer1 = empresa.getChofers().get(indiceChofer1);
                                         double gananciaDia = chofer1.calcularGanancias();
+                                        System.out.println(fecha);
                                         System.out.println("Ganancia del día para " + chofer1.getNombre() + ": " + gananciaDia);
                                         break;
+                                    default:
+                                        bandera2=false;
                                 }
-                            }
+                            }while (bandera2);
                     }
-                }
+                }while (bandera);
             }
         }
 

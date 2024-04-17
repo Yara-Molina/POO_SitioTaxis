@@ -22,10 +22,6 @@ public class Chofer {
         return apellido;
     }
 
-    public List<Servicio> getServicios() {
-        return servicios;
-    }
-
     public void registrarServicio(Servicio servicio) {
         this.servicios.add(servicio);
     }
