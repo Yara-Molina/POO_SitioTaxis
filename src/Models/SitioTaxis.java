@@ -20,7 +20,7 @@ public class SitioTaxis {
         return vehiculos;
     }
 
-    public void agregarChofer(Chofer chofer) {
+    public void agregarChofer(Chofer chofer, String apellido) {
         this.chofers.add(chofer);
     }
 

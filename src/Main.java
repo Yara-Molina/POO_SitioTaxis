@@ -50,7 +50,7 @@ import java.util.Scanner;
                                         System.out.println("Ingrese apellido del chofer: ");
                                         String apellido = scanner.next();
                                         Chofer chofer = new Chofer(nombre, apellido);
-                                        empresa.agregarChofer(chofer);
+                                        empresa.agregarChofer(chofer,apellido);
                                         System.out.println("Registro exitoso!");
                                         break;
                                     case "3":
@@ -120,7 +120,7 @@ import java.util.Scanner;
                                         Chofer chofer1 = empresa.getChofers().get(indiceChofer1);
                                         double gananciaDia = chofer1.calcularGanancias();
                                         System.out.println(fecha);
-                                        System.out.println("Ganancia del día para " + chofer1.getNombre() + ": " + gananciaDia);
+                                        System.out.println("Ganancia del día para " + chofer1.getNombre() + chofer1.getApellido()+ ": " + gananciaDia);
                                         break;
                                     default:
                                         bandera2=false;
