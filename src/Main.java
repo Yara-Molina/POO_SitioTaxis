@@ -1,9 +1,5 @@
-import Models.Chofer;
-import Models.Servicio;
-import Models.SitioTaxis;
-import Models.Vehiculo;
+import Models.*;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -49,10 +45,13 @@ import java.util.Scanner;
                                         String nombre = scanner.next();
                                         System.out.println("Ingrese apellido del chofer: ");
                                         String apellido = scanner.next();
+
                                         Chofer chofer = new Chofer(nombre, apellido);
-                                        empresa.agregarChofer(chofer,apellido);
+                                        empresa.agregarChofer(chofer, apellido);
+
                                         System.out.println("Registro exitoso!");
                                         break;
+
                                     case "3":
                                         System.out.println("---Asignar vehículo---");
                                         System.out.println("Choferes disponibles: ");
@@ -74,12 +73,14 @@ import java.util.Scanner;
 
                                         empresa.asignarVehiculoAChofer(chofer1, vehiculo1);
                                         System.out.println("Vehículo asignado correctamente!");
-                                        break;
-                                    case "x":
-                                        bandera1 = false;
+                                        System.out.println("se ha asignado vehiculo a chofer:");
+
+                                        System.out.println("Chofer: " + chofer1.getNombre());
+                                        System.out.println("Vehiculo: "+ vehiculo1.getNombre());
                                         break;
                                     default:
-                                        System.out.println("Opción no válida. Por favor, ingrese una opción válida.");
+                                        System.out.println("Saliendo al menu principal...");
+                                        bandera1 = false;
                                         break;
                                 }
                             }while (bandera1);
@@ -106,7 +107,8 @@ import java.util.Scanner;
                                         System.out.println("Seleccione chofer: ");
                                         int indiceChofer = scanner.nextInt() - 1;
                                         Chofer chofer = empresa.getChofers().get(indiceChofer);
-                                        chofer.registrarServicio(servicio);
+                                        Registro registroChofer = chofer.getRegistro();
+                                        registroChofer.registrarServicio(servicio);
                                         System.out.println("Servicio registrado correctamente!");
                                         break;
                                     case "2":
@@ -118,12 +120,15 @@ import java.util.Scanner;
                                         }
                                         int indiceChofer1 = scanner.nextInt() - 1;
                                         Chofer chofer1 = empresa.getChofers().get(indiceChofer1);
-                                        double gananciaDia = chofer1.calcularGanancias();
-                                        System.out.println(fecha);
-                                        System.out.println("Ganancia del día para " + chofer1.getNombre() + chofer1.getApellido()+ ": " + gananciaDia);
+                                        Registro registroChofer1 = chofer1.getRegistro();
+                                        double gananciaDia = registroChofer1.calcularGanancias();
+                                        System.out.println("Fecha: " + fecha);
+                                        System.out.println("Ganancia del día para " + chofer1.getNombre() + " " + chofer1.getApellido() + ": " + gananciaDia);
                                         break;
                                     default:
-                                        bandera2=false;
+                                        bandera2 = false;
+                                        System.out.println("Saliendo al menu principal...");
+
                                 }
                             }while (bandera2);
                     }

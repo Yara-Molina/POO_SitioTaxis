@@ -1,17 +1,14 @@
 package Models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Chofer {
     private String nombre;
     private String apellido;
-    private List<Servicio> servicios;
+    private Registro registro;
 
     public Chofer(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.servicios = new ArrayList<>();
+        this.registro = new Registro();
     }
 
     public String getNombre() {
@@ -23,16 +20,17 @@ public class Chofer {
     }
 
     public void registrarServicio(Servicio servicio) {
-        this.servicios.add(servicio);
+        registro.registrarServicio(servicio);
     }
 
     public double calcularGanancias() {
-        double totalGanancias = 0.0;
-        for (Servicio servicio : servicios) {
-            totalGanancias += servicio.getCosto();
-        }
-        return totalGanancias;
+        return registro.calcularGanancias();
+    }
+
+    public Registro getRegistro() {
+        return registro;
     }
 }
+
 
 
